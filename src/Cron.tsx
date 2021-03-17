@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react'
-import Button from 'antd/lib/button'
+import { Button } from '@material-ui/core'
 
 import { CronProps, PeriodType } from './types'
 import Period from './fields/Period'
@@ -236,8 +236,8 @@ export default function Cron(props: CronProps) {
         return (
           <Button
             className={clearButtonClassName}
-            danger
-            type='primary'
+            color='secondary'
+            variant='contained'
             disabled={disabled}
             {...otherClearButtonProps}
             onClick={handleClear}

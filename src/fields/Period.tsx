@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react'
-import { Select } from 'antd'
+import { Select, MenuItem } from '@material-ui/core'
 
 import { PeriodProps } from '../types'
 import { DEFAULT_LOCALE_EN } from '../locale'
@@ -53,7 +53,8 @@ export default function Period(props: PeriodProps) {
   }
 
   const handleChange = useCallback(
-    (newValue) => {
+    (e) => {
+      const newValue = e.target.value
       if (!readOnly) {
         setValue(newValue)
       }
@@ -82,16 +83,16 @@ export default function Period(props: PeriodProps) {
     [className, locale.prefixPeriod]
   )
 
-  const dropdownClassName = useMemo(
-    () =>
-      classNames({
-        'react-js-cron-select-dropdown': true,
-        'react-js-cron-select-dropdown-period': true,
-        [`${className}-select-dropdown`]: !!className,
-        [`${className}-select-dropdown-period`]: !!className,
-      }),
-    [className]
-  )
+  // const dropdownClassName = useMemo(
+  //   () =>
+  //     classNames({
+  //       'react-js-cron-select-dropdown': true,
+  //       'react-js-cron-select-dropdown-period': true,
+  //       [`${className}-select-dropdown`]: !!className,
+  //       [`${className}-select-dropdown-period`]: !!className,
+  //     }),
+  //   [className]
+  // )
 
   return (
     <div className={internalClassName}>
@@ -104,13 +105,18 @@ export default function Period(props: PeriodProps) {
         defaultValue={value}
         value={value}
         onChange={handleChange}
-        options={options}
         className={selectClassName}
-        dropdownClassName={dropdownClassName}
+        // dropdownClassName={dropdownClassName}
         disabled={disabled}
-        showArrow={!readOnly}
+        // showArrow={!readOnly}
         open={readOnly ? false : undefined}
-      />
+      >
+        {options.map(({ value }) => (
+          <MenuItem key={value} value={value}>
+            {value}
+          </MenuItem>
+        ))}
+      </Select>
     </div>
   )
 }
