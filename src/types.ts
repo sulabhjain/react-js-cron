@@ -1,7 +1,5 @@
-import { SelectProps } from 'antd/lib/select'
 import { Dispatch, SetStateAction } from 'react'
-import { ButtonProps } from 'antd/lib/button'
-
+import { ButtonBaseProps } from '@material-ui/core'
 // External props
 
 export interface CronProps {
@@ -179,7 +177,7 @@ export type OnError =
   | OnErrorFunction
   | Dispatch<SetStateAction<CronError>>
   | undefined
-export interface ClearButtonProps extends Omit<ButtonProps, 'onClick'> {}
+export interface ClearButtonProps extends Omit<ButtonBaseProps, 'onClick'> {}
 export type ClearButtonAction = 'empty' | 'fill-with-every'
 export type PeriodType =
   | 'year'
@@ -247,25 +245,7 @@ export interface MinutesProps extends FieldProps {
   leadingZero: LeadingZero
   clockFormat?: ClockFormat
 }
-export interface CustomSelectProps
-  extends Omit<
-    SelectProps<any>,
-    | 'mode'
-    | 'tokenSeparators'
-    | 'allowClear'
-    | 'virtual'
-    | 'onClick'
-    | 'onBlur'
-    | 'tagRender'
-    | 'dropdownRender'
-    | 'showSearch'
-    | 'showArrow'
-    | 'onChange'
-    | 'dropdownMatchSelectWidth'
-    | 'options'
-    | 'onSelect'
-    | 'onDeselect'
-  > {
+export interface CustomSelectProps {
   grid?: boolean
   setValue: SetValueNumbersOrUndefined
   optionsList?: string[]

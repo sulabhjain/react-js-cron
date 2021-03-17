@@ -45,17 +45,10 @@ export default function Minutes(props: MinutesProps) {
           )}
 
       <CustomSelect
-        placeholder={
-          period === 'hour'
-            ? locale.emptyMinutesForHourPeriod ||
-              DEFAULT_LOCALE_EN.emptyMinutesForHourPeriod
-            : locale.emptyMinutes || DEFAULT_LOCALE_EN.emptyMinutes
-        }
         value={value}
         unit={UNITS[0]}
         setValue={setValue}
         locale={locale}
-        className={className}
         disabled={disabled}
         readOnly={readOnly}
         leadingZero={leadingZero}

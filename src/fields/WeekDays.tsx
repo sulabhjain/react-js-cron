@@ -33,19 +33,6 @@ export default function WeekDays(props: WeekDaysProps) {
     [className, noMonthDays]
   )
 
-  const localeJSON = JSON.stringify(locale)
-  const placeholder = useMemo(
-    () => {
-      if (noMonthDays) {
-        return locale.emptyWeekDays || DEFAULT_LOCALE_EN.emptyWeekDays
-      }
-
-      return locale.emptyWeekDaysShort || DEFAULT_LOCALE_EN.emptyWeekDaysShort
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [noMonthDays, localeJSON]
-  )
-
   const displayWeekDays =
     period === 'week' ||
     !readOnly ||
@@ -76,7 +63,6 @@ export default function WeekDays(props: WeekDaysProps) {
         )}
 
       <CustomSelect
-        placeholder={placeholder}
         optionsList={optionsList}
         grid={false}
         value={value}
@@ -88,7 +74,6 @@ export default function WeekDays(props: WeekDaysProps) {
         }}
         setValue={setValue}
         locale={locale}
-        className={className}
         humanizeLabels={humanizeLabels}
         disabled={disabled}
         readOnly={readOnly}

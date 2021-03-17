@@ -5,12 +5,6 @@ import { CustomSelectProps } from '../types'
 import { formatValue } from '../converter'
 import { sort } from '../utils'
 
-// function getStyles(option: string, options: string[]) {
-//   return {
-//     fontWeight: options.indexOf(option) === -1 ? 'normal' : 'bold',
-//   }
-// }
-
 export default function CustomSelect(props: CustomSelectProps) {
   const {
     value,

@@ -36,12 +36,10 @@ export default function Hours(props: HoursProps) {
       )}
 
       <CustomSelect
-        placeholder={locale.emptyHours || DEFAULT_LOCALE_EN.emptyHours}
         value={value}
         unit={UNITS[1]}
         setValue={setValue}
         locale={locale}
-        className={className}
         disabled={disabled}
         readOnly={readOnly}
         leadingZero={leadingZero}

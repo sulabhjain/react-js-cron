@@ -32,19 +32,6 @@ export default function MonthDays(props: MonthDaysProps) {
     [className, noWeekDays]
   )
 
-  const localeJSON = JSON.stringify(locale)
-  const placeholder = useMemo(
-    () => {
-      if (noWeekDays) {
-        return locale.emptyMonthDays || DEFAULT_LOCALE_EN.emptyMonthDays
-      }
-
-      return locale.emptyMonthDaysShort || DEFAULT_LOCALE_EN.emptyMonthDaysShort
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [noWeekDays, localeJSON]
-  )
-
   const displayMonthDays =
     !readOnly ||
     (value && value.length > 0) ||
@@ -59,12 +46,10 @@ export default function MonthDays(props: MonthDaysProps) {
       )}
 
       <CustomSelect
-        placeholder={placeholder}
         value={value}
         setValue={setValue}
         unit={UNITS[2]}
         locale={locale}
-        className={className}
         disabled={disabled}
         readOnly={readOnly}
         leadingZero={leadingZero}

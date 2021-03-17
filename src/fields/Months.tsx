@@ -37,7 +37,6 @@ export default function Months(props: MonthsProps) {
       )}
 
       <CustomSelect
-        placeholder={locale.emptyMonths || DEFAULT_LOCALE_EN.emptyMonths}
         optionsList={optionsList}
         grid={false}
         value={value}
@@ -49,7 +48,6 @@ export default function Months(props: MonthsProps) {
         }}
         setValue={setValue}
         locale={locale}
-        className={className}
         humanizeLabels={humanizeLabels}
         disabled={disabled}
         readOnly={readOnly}

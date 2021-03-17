@@ -234,14 +234,7 @@ export default function Cron(props: CronProps) {
     () => {
       if (clearButton && !readOnly) {
         return (
-          <Button
-            className={clearButtonClassName}
-            color='secondary'
-            variant='contained'
-            disabled={disabled}
-            {...otherClearButtonProps}
-            onClick={handleClear}
-          >
+          <Button onClick={handleClear}>
             {locale.clearButtonText || DEFAULT_LOCALE_EN.clearButtonText}
           </Button>
         )
